@@ -1,6 +1,6 @@
-name: 'Auto label'
+name: 'Auto label (fdaciuk test)'
 description: 'issue creator can check their own labels'
-author: 'Renato66'
+author: 'fdaciuk'
 branding:
   icon: 'check-square'
   color: 'blue'
@@ -9,11 +9,11 @@ inputs:
     description: 'github token for the repository'
     required: true
   ignore-comments:
-    descriptioin: 'ignore labels inside issue comments'
-    defaul: true
+    description: 'ignore labels inside issue comments'
+    default: true
   labels-not-allowed:
-    descriptioin: 'ignore labels'
-    defaul: ''
+    description: 'ignore labels'
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
