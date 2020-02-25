@@ -20,8 +20,7 @@ export async function run() {
     console.log(`Labels found: ${issueLabels.length}`)
     if (issueLabels.length !== 0 ) {
       console.log('Adding labels to issue...')
-      console.log('client:', client)
-      console.log('issue (.number):', issue)
+      console.log('issue.number:', issue.number)
       console.log('issueLabels:', issueLabels)
       await addLabels(client, issue.number, issueLabels)
       console.log('Done')
@@ -29,6 +28,7 @@ export async function run() {
       console.log('Done')
     }
   } catch (error) {
+    console.log('error:', JSON.stringify(error, null, 2))
     core.setFailed(error.message)
   }
 }
