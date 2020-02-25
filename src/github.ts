@@ -14,8 +14,8 @@ const getRepoLabels: Function = async (client: any, labelsNotAllowed: string[] =
   })
 }
 
-const addLabels: Function = async (client: any, issueNumber: number, labels: string[]) => {
-  await client.issues.addLabels({
+const addLabels: Function = (client: any, issueNumber: number, labels: string[]) => {
+  return client.issues.addLabels({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
     issue_number: issueNumber,

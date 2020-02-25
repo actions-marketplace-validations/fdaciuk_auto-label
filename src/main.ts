@@ -1,10 +1,9 @@
-export {}
 const core = require('@actions/core')
 const github = require('@actions/github')
 const { getIssueLabels } = require('./functions')
 const { getRepoLabels, addLabels } = require('./github')
 
-async function run() {
+export async function run() {
   try {
     const token = core.getInput('repo-token', {required: true})
     const ignoreComments = core.getInput('ignore-comments')
@@ -21,6 +20,9 @@ async function run() {
     console.log(`Labels found: ${issueLabels.length}`)
     if (issueLabels.length !== 0 ) {
       console.log('Adding labels to issue...')
+      console.log('client:', client)
+      console.log('issue (.number):', issue)
+      console.log('issueLabels:', issueLabels)
       await addLabels(client, issue.number, issueLabels)
       console.log('Done')
     } else {
